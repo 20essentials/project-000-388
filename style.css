@@ -1,0 +1,68 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: white transparent;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  place-content: center;
+  background-color: black;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('assets/image-1.avif');
+    filter: blur(5px);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom;
+    opacity: 0.75;
+    z-index: -1;
+  }
+}
+
+.container {
+  width: 240px;
+  height: 240px;
+  background-image: url('assets/image-1.avif');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: bottom;
+  animation: wave 3s ease-in-out infinite alternate both;
+}
+
+@keyframes wave {
+  0% {
+    border-radius: 50% 50% 40% 60% / 60% 40% 50% 50%;
+  }
+  25% {
+    border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+  }
+  50% {
+    border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+  }
+  75% {
+    border-radius: 50% 50% 60% 40% / 40% 50% 50% 60%;
+  }
+  100% {
+    border-radius: 50% 50% 40% 60% / 60% 40% 50% 50%;
+  }
+}
